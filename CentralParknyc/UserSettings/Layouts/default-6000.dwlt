@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 2048
     height: 1060.8
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Inspector
   m_RootView: {fileID: 8}
   m_MinSize: {x: 875, y: 338}
   m_MaxSize: {x: 10000, y: 10000}
@@ -664,12 +664,12 @@ MonoBehaviour:
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs:
-    - m_Data: 45990
+    - m_Data: 46014
     m_LastClickedID:
-      m_Data: 45990
+      m_Data: 46014
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 45990
+    - m_Data: 46014
     - m_Data: 1000000000
     - m_Data: 2147483647
     m_RenameOverlay:
@@ -704,7 +704,7 @@ MonoBehaviour:
       m_Data: 0
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 45990
+    - m_Data: 46014
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -732,9 +732,9 @@ MonoBehaviour:
       m_ResourceFile: 
   m_ListAreaState:
     m_SelectedInstanceIDs:
-    - m_Data: -2790
-    m_LastClickedInstanceID: -2790
-    m_HadKeyboardFocusLastEvent: 1
+    - m_Data: 45780
+    m_LastClickedInstanceID: 45780
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: []
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -858,9 +858,9 @@ MonoBehaviour:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs:
-      - m_Data: -2790
+      - m_Data: 45780
       m_LastClickedID:
-        m_Data: -2790
+        m_Data: 45780
       m_ExpandedIDs:
       - m_Data: -1296
       m_RenameOverlay:
@@ -924,7 +924,7 @@ MonoBehaviour:
     m_SaveData:
     - dockPosition: 0
       containerId: overlay-toolbar__top
-      displayed: 1
+      displayed: 0
       id: Brush Attributes
       index: 0
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Folded":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":24.0,"y":0.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
@@ -1022,12 +1022,12 @@ MonoBehaviour:
       sizeOverridden: 0
     - dockPosition: 0
       containerId: overlay-toolbar__left
-      displayed: 1
+      displayed: 0
       id: Brush Masks
       index: 1
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Folded":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":24.0,"y":0.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
-      collapsed: 1
+      collapsed: 0
       snapOffset: {x: 24, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
@@ -1441,9 +1441,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 221.87033, y: 39.214355, z: 112.06722}
+    m_Target: {x: 195.67126, y: 9.282739, z: 81.01205}
     speed: 2
-    m_Value: {x: 221.87033, y: 39.214355, z: 112.06722}
+    m_Value: {x: 195.67126, y: 9.282739, z: 81.01205}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1489,13 +1489,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.24151331, y: -0.048612054, z: 0.012142869, w: 0.9692262}
+    m_Target: {x: -0.26212066, y: 0.06569027, z: -0.017904192, w: -0.96279395}
     speed: 2
-    m_Value: {x: 0.24264728, y: -0.048591644, z: 0.012199768, w: 0.96882004}
+    m_Value: {x: -0.26212066, y: 0.06569027, z: -0.017904192, w: -0.96279395}
   m_Size:
-    m_Target: 105.27977
+    m_Target: 71.5757
     speed: 2
-    m_Value: 110.24059
+    m_Value: 71.5757
   m_Ortho:
     m_Target: 0
     speed: 2
