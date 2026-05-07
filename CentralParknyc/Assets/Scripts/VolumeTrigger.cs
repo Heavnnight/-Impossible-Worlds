@@ -4,11 +4,24 @@ using UnityEngine;
 public class WorldSwapTrigger : MonoBehaviour
 {
     [Header("World References")]
-    public GameObject normalWorld; // The normal/default world
-    public GameObject darkWorld;   // The dark/creepy world
+    public GameObject normalWorld;
+    public GameObject darkWorld;
+
+    [Header("Distortion Effect")]
+    public GameObject effect;
+
+    [Header("Skyboxes")]
+    public Material normalSkybox;
+    public Material darkSkybox;
+
+    [Header("Optional Lighting")]
+    public Light directionalLight;
+
+    public Color normalLightColor = Color.white;
+    public Color darkLightColor = Color.red;
 
     [Header("Trigger Settings")]
-    public string triggerTag = "Player"; // Tag required to activate the trigger
+    public string triggerTag = "Player";
 
     private bool hasSwitched = false;
 
@@ -17,21 +30,58 @@ public class WorldSwapTrigger : MonoBehaviour
         // Make sure the collider works as a trigger
         GetComponent<BoxCollider>().isTrigger = true;
 
-        // Initial state: normal world ON, dark world OFF
-        if (normalWorld != null) normalWorld.SetActive(true);
-        if (darkWorld != null) darkWorld.SetActive(false);
+        // Enable the normal world at the start
+        if (normalWorld != null)
+            normalWorld.SetActive(true);
+
+        // Disable the dark world at the start
+        if (darkWorld != null)
+            darkWorld.SetActive(false);
+
+        // Disable the distortion effect at the start
+        if (effect != null)
+            effect.SetActive(false);
+
+        // Set the normal skybox
+        if (normalSkybox != null)
+            RenderSettings.skybox = normalSkybox;
+
+        // Set the normal light color
+        if (directionalLight != null)
+            directionalLight.color = normalLightColor;
+
+        DynamicGI.UpdateEnvironment();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        // Only switch once when the Player enters
+        // Only trigger once when the player enters
         if (!hasSwitched && other.CompareTag(triggerTag))
         {
             hasSwitched = true;
 
-            // Switch worlds permanently
-            if (normalWorld != null) normalWorld.SetActive(false);
-            if (darkWorld != null) darkWorld.SetActive(true);
+            // Disable the normal world
+            if (normalWorld != null)
+                normalWorld.SetActive(false);
+
+            // Enable the dark world
+            if (darkWorld != null)
+                darkWorld.SetActive(true);
+
+            // Enable the distortion effect
+            if (effect != null)
+                effect.SetActive(true);
+
+            // Change the skybox
+            if (darkSkybox != null)
+                RenderSettings.skybox = darkSkybox;
+
+            // Change the directional light color
+            if (directionalLight != null)
+                directionalLight.color = darkLightColor;
+
+            // Update environment lighting
+            DynamicGI.UpdateEnvironment();
         }
     }
 }
