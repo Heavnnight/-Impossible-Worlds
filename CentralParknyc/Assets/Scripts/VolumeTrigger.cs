@@ -20,6 +20,21 @@ public class WorldSwapTrigger : MonoBehaviour
     public Color normalLightColor = Color.white;
     public Color darkLightColor = Color.red;
 
+    [Header("Fog Settings")]
+    public bool normalFogEnabled = false;
+    public Color normalFogColor = Color.gray;
+    public FogMode normalFogMode = FogMode.Exponential;
+    public float normalFogDensity = 0.01f;
+
+    public bool darkFogEnabled = true;
+    public Color darkFogColor = new Color(0.25f, 0f, 0.35f);
+    public FogMode darkFogMode = FogMode.Exponential;
+    public float darkFogDensity = 0.035f;
+
+    [Header("Music Settings")]
+    public AudioSource normalMusic;
+    public AudioSource darkMusic;
+
     [Header("Trigger Settings")]
     public string triggerTag = "Player";
 
@@ -50,6 +65,19 @@ public class WorldSwapTrigger : MonoBehaviour
         if (directionalLight != null)
             directionalLight.color = normalLightColor;
 
+        // Set normal fog
+        RenderSettings.fog = normalFogEnabled;
+        RenderSettings.fogColor = normalFogColor;
+        RenderSettings.fogMode = normalFogMode;
+        RenderSettings.fogDensity = normalFogDensity;
+
+        // Play normal music and stop dark music
+        if (normalMusic != null)
+            normalMusic.Play();
+
+        if (darkMusic != null)
+            darkMusic.Stop();
+
         DynamicGI.UpdateEnvironment();
     }
 
@@ -79,6 +107,19 @@ public class WorldSwapTrigger : MonoBehaviour
             // Change the directional light color
             if (directionalLight != null)
                 directionalLight.color = darkLightColor;
+
+            // Turn on dark world fog
+            RenderSettings.fog = darkFogEnabled;
+            RenderSettings.fogColor = darkFogColor;
+            RenderSettings.fogMode = darkFogMode;
+            RenderSettings.fogDensity = darkFogDensity;
+
+            // Switch music
+            if (normalMusic != null)
+                normalMusic.Stop();
+
+            if (darkMusic != null)
+                darkMusic.Play();
 
             // Update environment lighting
             DynamicGI.UpdateEnvironment();
