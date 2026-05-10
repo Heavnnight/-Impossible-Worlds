@@ -4,5 +4,15 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: b0ff493440d9142ac8e8954ec42a6017
+  - enabled: 1
+    path: Assets/Scenes/The bond.unity
+    guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Sheep Meadow.unity
+    guid: 23cca3141519d44a0b2e60c48842d55c
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0

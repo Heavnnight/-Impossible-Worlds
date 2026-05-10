@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -7,6 +8,9 @@ public class WorldSwapTrigger : MonoBehaviour
     [Header("World References")]
     public GameObject normalWorld;
     public GameObject darkWorld;
+
+    [Header("Fade Transition")]
+    public ScreenFade screenFade;
 
     [Header("Distortion Effect")]
     public GameObject effect;
@@ -19,6 +23,8 @@ public class WorldSwapTrigger : MonoBehaviour
     public Light directionalLight;
     public Color normalLightColor = Color.white;
     public Color darkLightColor = Color.red;
+    public float normalLightIntensity = 1f;
+    public float darkLightIntensity = 0.4f;
 
     [Header("Fog Settings")]
     public bool normalFogEnabled = false;
@@ -47,7 +53,6 @@ public class WorldSwapTrigger : MonoBehaviour
     private void Start()
     {
         GetComponent<BoxCollider>().isTrigger = true;
-
         SetNormalWorld();
     }
 
@@ -56,8 +61,19 @@ public class WorldSwapTrigger : MonoBehaviour
         if (!hasSwitched && other.CompareTag(triggerTag))
         {
             hasSwitched = true;
-            SetDarkWorld();
+            StartCoroutine(SwitchWithFade());
         }
+    }
+
+    private IEnumerator SwitchWithFade()
+    {
+        if (screenFade != null)
+            yield return StartCoroutine(screenFade.FadeOut());
+
+        SetDarkWorld();
+
+        if (screenFade != null)
+            yield return StartCoroutine(screenFade.FadeIn());
     }
 
     private void SetNormalWorld()
@@ -70,7 +86,10 @@ public class WorldSwapTrigger : MonoBehaviour
         if (normalSkybox != null) RenderSettings.skybox = normalSkybox;
 
         if (directionalLight != null)
+        {
             directionalLight.color = normalLightColor;
+            directionalLight.intensity = normalLightIntensity;
+        }
 
         RenderSettings.fog = normalFogEnabled;
         RenderSettings.fogColor = normalFogColor;
@@ -80,7 +99,7 @@ public class WorldSwapTrigger : MonoBehaviour
         if (normalVolume != null) normalVolume.SetActive(true);
         if (darkVolume != null) darkVolume.SetActive(false);
 
-        if (normalMusic != null) normalMusic.Play();
+        if (normalMusic != null && !normalMusic.isPlaying) normalMusic.Play();
         if (darkMusic != null) darkMusic.Stop();
 
         DynamicGI.UpdateEnvironment();
@@ -98,7 +117,7 @@ public class WorldSwapTrigger : MonoBehaviour
         if (directionalLight != null)
         {
             directionalLight.color = darkLightColor;
-            directionalLight.intensity = 0.4f;
+            directionalLight.intensity = darkLightIntensity;
         }
 
         RenderSettings.fog = darkFogEnabled;
@@ -110,7 +129,7 @@ public class WorldSwapTrigger : MonoBehaviour
         if (darkVolume != null) darkVolume.SetActive(true);
 
         if (normalMusic != null) normalMusic.Stop();
-        if (darkMusic != null) darkMusic.Play();
+        if (darkMusic != null && !darkMusic.isPlaying) darkMusic.Play();
 
         DynamicGI.UpdateEnvironment();
     }
