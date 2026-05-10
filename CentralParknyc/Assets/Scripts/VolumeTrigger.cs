@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 [RequireComponent(typeof(BoxCollider))]
 public class WorldSwapTrigger : MonoBehaviour
@@ -16,7 +17,6 @@ public class WorldSwapTrigger : MonoBehaviour
 
     [Header("Optional Lighting")]
     public Light directionalLight;
-
     public Color normalLightColor = Color.white;
     public Color darkLightColor = Color.red;
 
@@ -29,7 +29,11 @@ public class WorldSwapTrigger : MonoBehaviour
     public bool darkFogEnabled = true;
     public Color darkFogColor = new Color(0.25f, 0f, 0.35f);
     public FogMode darkFogMode = FogMode.Exponential;
-    public float darkFogDensity = 0.035f;
+    public float darkFogDensity = 0.08f;
+
+    [Header("Volumes")]
+    public GameObject normalVolume;
+    public GameObject darkVolume;
 
     [Header("Music Settings")]
     public AudioSource normalMusic;
@@ -42,87 +46,72 @@ public class WorldSwapTrigger : MonoBehaviour
 
     private void Start()
     {
-        // Make sure the collider works as a trigger
         GetComponent<BoxCollider>().isTrigger = true;
 
-        // Enable the normal world at the start
-        if (normalWorld != null)
-            normalWorld.SetActive(true);
+        SetNormalWorld();
+    }
 
-        // Disable the dark world at the start
-        if (darkWorld != null)
-            darkWorld.SetActive(false);
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!hasSwitched && other.CompareTag(triggerTag))
+        {
+            hasSwitched = true;
+            SetDarkWorld();
+        }
+    }
 
-        // Disable the distortion effect at the start
-        if (effect != null)
-            effect.SetActive(false);
+    private void SetNormalWorld()
+    {
+        if (normalWorld != null) normalWorld.SetActive(true);
+        if (darkWorld != null) darkWorld.SetActive(false);
 
-        // Set the normal skybox
-        if (normalSkybox != null)
-            RenderSettings.skybox = normalSkybox;
+        if (effect != null) effect.SetActive(false);
 
-        // Set the normal light color
+        if (normalSkybox != null) RenderSettings.skybox = normalSkybox;
+
         if (directionalLight != null)
             directionalLight.color = normalLightColor;
 
-        // Set normal fog
         RenderSettings.fog = normalFogEnabled;
         RenderSettings.fogColor = normalFogColor;
         RenderSettings.fogMode = normalFogMode;
         RenderSettings.fogDensity = normalFogDensity;
 
-        // Play normal music and stop dark music
-        if (normalMusic != null)
-            normalMusic.Play();
+        if (normalVolume != null) normalVolume.SetActive(true);
+        if (darkVolume != null) darkVolume.SetActive(false);
 
-        if (darkMusic != null)
-            darkMusic.Stop();
+        if (normalMusic != null) normalMusic.Play();
+        if (darkMusic != null) darkMusic.Stop();
 
         DynamicGI.UpdateEnvironment();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void SetDarkWorld()
     {
-        // Only trigger once when the player enters
-        if (!hasSwitched && other.CompareTag(triggerTag))
+        if (normalWorld != null) normalWorld.SetActive(false);
+        if (darkWorld != null) darkWorld.SetActive(true);
+
+        if (effect != null) effect.SetActive(true);
+
+        if (darkSkybox != null) RenderSettings.skybox = darkSkybox;
+
+        if (directionalLight != null)
         {
-            hasSwitched = true;
-
-            // Disable the normal world
-            if (normalWorld != null)
-                normalWorld.SetActive(false);
-
-            // Enable the dark world
-            if (darkWorld != null)
-                darkWorld.SetActive(true);
-
-            // Enable the distortion effect
-            if (effect != null)
-                effect.SetActive(true);
-
-            // Change the skybox
-            if (darkSkybox != null)
-                RenderSettings.skybox = darkSkybox;
-
-            // Change the directional light color
-            if (directionalLight != null)
-                directionalLight.color = darkLightColor;
-
-            // Turn on dark world fog
-            RenderSettings.fog = darkFogEnabled;
-            RenderSettings.fogColor = darkFogColor;
-            RenderSettings.fogMode = darkFogMode;
-            RenderSettings.fogDensity = darkFogDensity;
-
-            // Switch music
-            if (normalMusic != null)
-                normalMusic.Stop();
-
-            if (darkMusic != null)
-                darkMusic.Play();
-
-            // Update environment lighting
-            DynamicGI.UpdateEnvironment();
+            directionalLight.color = darkLightColor;
+            directionalLight.intensity = 0.4f;
         }
+
+        RenderSettings.fog = darkFogEnabled;
+        RenderSettings.fogColor = darkFogColor;
+        RenderSettings.fogMode = darkFogMode;
+        RenderSettings.fogDensity = darkFogDensity;
+
+        if (normalVolume != null) normalVolume.SetActive(false);
+        if (darkVolume != null) darkVolume.SetActive(true);
+
+        if (normalMusic != null) normalMusic.Stop();
+        if (darkMusic != null) darkMusic.Play();
+
+        DynamicGI.UpdateEnvironment();
     }
 }
