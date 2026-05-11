@@ -12977,7 +12977,7 @@ MonoBehaviour:
   darkFogMode: 2
   darkFogDensity: 0.08
   normalVolume: {fileID: 451362232}
-  darkVolume: {fileID: 1758331087}
+  darkVolume: {fileID: 0}
   normalMusic: {fileID: 0}
   darkMusic: {fileID: 0}
   triggerTag: Player
@@ -29101,7 +29101,7 @@ Transform:
   m_GameObject: {fileID: 1703998026}
   serializedVersion: 2
   m_LocalRotation: {x: 0.6891181, y: -0, z: -0, w: 0.7246491}
-  m_LocalPosition: {x: 228.24548, y: 19.9036, z: 210.9}
+  m_LocalPosition: {x: 228.24548, y: 19.9036, z: 211.3}
   m_LocalScale: {x: 2.1207623, y: 5.5011344, z: 3.9221642}
   m_ConstrainProportionsScale: 0
   m_Children: []
