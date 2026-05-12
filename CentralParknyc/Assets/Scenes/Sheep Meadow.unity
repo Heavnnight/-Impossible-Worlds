@@ -562,11 +562,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4207293392497186, guid: 11aaea5348574644a9eb4f4504fcce3f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 16.9
+      value: -0.4
       objectReference: {fileID: 0}
     - target: {fileID: 4207293392497186, guid: 11aaea5348574644a9eb4f4504fcce3f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 135
+      value: 502.9
       objectReference: {fileID: 0}
     - target: {fileID: 4207293392497186, guid: 11aaea5348574644a9eb4f4504fcce3f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1979,6 +1979,7 @@ GameObject:
   - component: {fileID: 415646712}
   - component: {fileID: 415646711}
   - component: {fileID: 415646710}
+  - component: {fileID: 415646714}
   m_Layer: 0
   m_Name: light
   m_TagString: Untagged
@@ -2079,6 +2080,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 543830212}
   m_LocalEulerAnglesHint: {x: 0, y: -40.473, z: 0}
+--- !u!114 &415646714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415646709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d734fb093061a240bb4a981154c422d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RespawnTrigger
+  respawnPoint: {fileID: 648628693}
+  player: {fileID: 1770348290}
 --- !u!1001 &455654920
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2194,6 +2209,7 @@ GameObject:
   - component: {fileID: 468524216}
   - component: {fileID: 468524215}
   - component: {fileID: 468524214}
+  - component: {fileID: 468524218}
   m_Layer: 0
   m_Name: light
   m_TagString: Untagged
@@ -2294,6 +2310,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 543830212}
   m_LocalEulerAnglesHint: {x: 0, y: 49.583, z: 0}
+--- !u!114 &468524218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 468524213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d734fb093061a240bb4a981154c422d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RespawnTrigger
+  respawnPoint: {fileID: 648628693}
+  player: {fileID: 1770348290}
 --- !u!1001 &475047056
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2843,27 +2873,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 0035ce0b2560d4b3f84757cf443869b1, type: 3}
       propertyPath: m_LocalScale.x
-      value: 330.8442
+      value: 223.24374
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0035ce0b2560d4b3f84757cf443869b1, type: 3}
       propertyPath: m_LocalScale.y
-      value: 330.8442
+      value: 223.24374
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0035ce0b2560d4b3f84757cf443869b1, type: 3}
       propertyPath: m_LocalScale.z
-      value: 330.84418
+      value: 223.24373
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0035ce0b2560d4b3f84757cf443869b1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 220.7
+      value: 220.74
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0035ce0b2560d4b3f84757cf443869b1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0035ce0b2560d4b3f84757cf443869b1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2547
+      value: -2574.8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0035ce0b2560d4b3f84757cf443869b1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5611,6 +5641,7 @@ GameObject:
   - component: {fileID: 1498309679}
   - component: {fileID: 1498309678}
   - component: {fileID: 1498309677}
+  - component: {fileID: 1498309681}
   m_Layer: 0
   m_Name: light
   m_TagString: Untagged
@@ -5711,6 +5742,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 543830212}
   m_LocalEulerAnglesHint: {x: 0, y: 49.583, z: 0}
+--- !u!114 &1498309681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498309676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d734fb093061a240bb4a981154c422d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RespawnTrigger
+  respawnPoint: {fileID: 648628693}
+  player: {fileID: 1770348290}
 --- !u!1001 &1498848746
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6089,6 +6134,7 @@ GameObject:
   - component: {fileID: 1592732682}
   - component: {fileID: 1592732681}
   - component: {fileID: 1592732680}
+  - component: {fileID: 1592732684}
   m_Layer: 0
   m_Name: light
   m_TagString: Untagged
@@ -6189,6 +6235,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 543830212}
   m_LocalEulerAnglesHint: {x: 0, y: -40.473, z: 0}
+--- !u!114 &1592732684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592732679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d734fb093061a240bb4a981154c422d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RespawnTrigger
+  respawnPoint: {fileID: 648628693}
+  player: {fileID: 1770348290}
 --- !u!1001 &1626697753
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6590,6 +6650,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 543830212}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1770348290 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1773623360729482, guid: 11aaea5348574644a9eb4f4504fcce3f, type: 3}
+  m_PrefabInstance: {fileID: 81348499}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1797704027
 PrefabInstance:
   m_ObjectHideFlags: 0
