@@ -9,9 +9,9 @@ onBoardingDoNotAskAgain = true
 showPackageIndexes = false
 showStatusBar = false
 scopes = {
-	"last_search.66F56946" = "anima"
+	"last_search.66F56946" = "audio"
 	"OpenInspectorPreview.66F56946" = "0"
-	"currentGroup.66F56946" = "all"
+	"currentGroup.66F56946" = "menu"
 	"picker_window_position_offset.00000000" = "147.2001;466.4;320;550.4"
 	"picker_visibility_flags.00000000" = "0"
 	"picker_item_size.00000000" = "1"
@@ -72,6 +72,7 @@ providers = {
 objectSelectors = {
 }
 recentSearches = [
+	"Audio SOurc"
 ]
 searchItemFavorites = [
 ]
@@ -88,4 +89,4 @@ helperWidgetCurrentArea = "all"
 disabledIndexers = ""
 minIndexVariations = 2
 findProviderIndexHelper = true
-itemIconSize = 32
+itemIconSize = 1
